@@ -1,7 +1,13 @@
   <template>
-    <h1>${heading}</h1>
+    <require from="style.css"></require>
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:600,800&display=swap" rel="stylesheet">
+    <h1>REBU</h1>
 
-    <button click.trigger="publishMessage()">publish</button>
+    <div id="map">
+      <iframe src="https://maps.google.com/maps?width=700&amp;height=440&amp;hl=en&amp;q=45.346056999999995,-75.9266018&amp;ie=UTF8&amp;t=&amp;z=16&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </div>
+    
+    <button click.trigger="publishMessage()">Request REBU Driver</button>
     
   </template>
   
