@@ -5,7 +5,7 @@ import { inject } from "aurelia-framework";
 export class App {
   
   constructor(httpClient) {
-    this.heading = 'Todos';
+    this.btnStr = 'Request REBU Driver';
     this.todos = [];
     this.todoDescription = '';
     this.httpClient = httpClient;
@@ -15,7 +15,7 @@ export class App {
         .withDefaults({
           credentials:'same-origin',
           headers: {
-            'Authorization': 'Bearer ya29.Iq4BvQe3XEYfq_ndqn6eBVDJUKmkg4mBviqOu1Ep0_qaEOJ_10019GVb1n2T_0PdiSxsEZPq0Peu3FNjMCrwPjxUo9SaIhCdY3skaq5dXPvyPnLqPEDZMcpmQ0Nemg_6VsCklAvEPvFj_BwdUgoAQcbJsPPoGbW_CvkxFNvimp07gu2NYdjQMEgpz-BV6QFH5T-EWMBMZoY6N2FIe9frN5gZT3twrmJY0dkdmSu83m-f',
+            'Authorization': 'Bearer ya29.Iq8BvQcNoMHuKCFqDjsNmc5FiJu_bSUyK6YXFfkTu_TBnsIX0Xcd_E5jaAhEu-W7C7VGJiVq8HXU-bwqCKPBnWFPusWZ24o1tiM_57dZkdUEE8dH5rU7XqwbC8k6EUcFkk1pZpBqzg3NZ6lg5SqM5i2I3y5ttn7croY_Ce-fza1WapJuBN1Q9Bzfecx_BYAm6GQ71CzUkLXy6396SPWHXY0UpWoP4a4X47foZ8853Kbqdw',
             'Accept' : 'application/json',
             'X-Requested-With' : 'Fetch'
           }
@@ -37,23 +37,6 @@ export class App {
 
   }
 
-  addTodo() {
-    if (this.todoDescription) {
-      this.todos.push({
-        description: this.todoDescription,
-        done: false
-      });
-      this.todoDescription = '';
-    }
-  }
-
-  removeTodo(todo) {
-    let index = this.todos.indexOf(todo);
-    if (index !== -1) {
-      this.todos.splice(index, 1);
-    }
-  }
-
   publishMessage() {
       let message = {
         "messages": [
@@ -65,15 +48,16 @@ export class App {
             "data": btoa("Hello, I want a ride pls")
           }
         ]
-      }
+      };
+
       this.httpClient
         .fetch("Rebu-test-topic:publish",{
           method: 'post',
           body: json(message)
           })
           .then(response => response.json())
-          .then(savedComment => {
-            alert('Saved comment! ID: ${savedComment.id}');
+          .then(response => {
+            this.btnStr = "REBU Driver Requested..."
           })
           .catch(error => {
             alert('Error saving comment!');
