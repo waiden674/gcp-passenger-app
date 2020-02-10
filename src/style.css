@@ -1,8 +1,8 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css');
-
 body {
     font-family: 'Work Sans', sans-serif;
     height: 100vh;
+    overflow: hidden;
 }
 
 h1 {
@@ -18,7 +18,7 @@ h1 {
 }
 
 button {
-    width: 300px;
+    width: 350px;
     padding: 20px;
     border-radius: 5px;
     border: none;
@@ -26,7 +26,7 @@ button {
     background-color: #FFB72E;
     position: absolute;
     bottom: 10px;
-    left: calc(50% - 150px);
+    left: calc(50% - 175px);
     font-weight: 600;
     box-shadow: 3px 8px 8px rgba(0,0,0,0.3);
 }
@@ -45,3 +45,74 @@ iframe {
     overflow: hidden;
     margin-top: -150px;
 }
+
+#loading {
+    background-color: #FFB72E;
+    height: 110vh;
+    width: 100%;
+    position: absolute;
+    z-index: 9999;
+    animation-delay: 3.5s;
+    animation-duration: 0.5s;
+}
+
+#loading p {
+    width: 100%;
+    text-align: center;
+    font-size: 4em;
+    position: relative;
+    top: 45%;
+    font-weight: 800;
+    letter-spacing: 5px;
+}
+
+svg {
+    width: 25px;
+    margin-right: 5px;
+}
+
+/*****
+PRELOADER
+*****/
+
+.lds-facebook {
+    width: 300px;
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    left: calc(50% - 40px);
+    top: 300px;
+  }
+
+  .lds-facebook div {
+    display: inline-block;
+    position: absolute;
+    left: 8px;
+    width: 16px;
+    background: #000;
+    animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  }
+
+  .lds-facebook div:nth-child(1) {
+    left: 8px;
+    animation-delay: -0.24s;
+  }
+  .lds-facebook div:nth-child(2) {
+    left: 32px;
+    animation-delay: -0.12s;
+  }
+  .lds-facebook div:nth-child(3) {
+    left: 56px;
+    animation-delay: 0;
+  }
+  @keyframes lds-facebook {
+    0% {
+      top: 8px;
+      height: 64px;
+    }
+    50%, 100% {
+      top: 24px;
+      height: 32px;
+    }
+  }
