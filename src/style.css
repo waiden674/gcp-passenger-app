@@ -51,7 +51,7 @@ iframe {
     height: 110vh;
     width: 100%;
     position: absolute;
-    z-index: 9999;
+    z-index: -9999;
     animation-delay: 3.5s;
     animation-duration: 0.5s;
 }
@@ -69,6 +69,10 @@ iframe {
 svg {
     width: 25px;
     margin-right: 5px;
+}
+
+.page-content {
+    animation-delay: 3.5s;
 }
 
 /*****
