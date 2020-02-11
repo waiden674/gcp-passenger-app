@@ -64,6 +64,11 @@ export class App {
             alert('Error saving comment!');
     });
   }
+
+  expanded = false;
+  open() {
+    this.expanded = !this.expanded;
+  }
 }
 
 
