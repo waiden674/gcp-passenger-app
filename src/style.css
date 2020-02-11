@@ -87,7 +87,7 @@ svg {
 }
 
 .page-content {
-    animation-delay: 3.5s;
+    /* animation-delay: 3.5s; */
 }
 
 .profile {
@@ -200,4 +200,21 @@ PRELOADER
       top: 24px;
       height: 32px;
     }
+  }
+
+  /***** MESSAGE 
+  *******/
+
+  #message {
+    position: absolute;
+    top: 25%;
+    left: calc(50% - 175px);
+    z-index: 9999;
+    background-color: white;
+    padding: 25px;
+    border-radius: 5px;
+    font-size: 1.75em;
+    width: 350px;
+    text-align: center;
+    display: none;
   }
