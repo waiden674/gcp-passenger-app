@@ -11,7 +11,7 @@ export class App {
     this.httpClient = httpClient;
     this.httpClient.configure(config => {
       config
-        .withBaseUrl('https://pubsub.googleapis.com/v1/projects/stellar-arcadia-205014/topics/')
+        .withBaseUrl('https://pubsub.googleapis.com/v1/projects/stellar-arcadia-205014/')
         .withDefaults({
           credentials:'same-origin',
           headers: {
@@ -34,7 +34,7 @@ export class App {
   }
 
   activate() {
-
+    this.pullMessage();
   }
 
   publishMessage() {
@@ -54,7 +54,7 @@ export class App {
       };
 
       this.httpClient
-        .fetch("acme-rideshare-ride-requested-topic:publish",{
+        .fetch("topics/acme-rideshare-ride-requested-topic:publish",{
           method: 'post',
           body: json(message)
           })
@@ -70,6 +70,43 @@ export class App {
   expanded = false;
   open() {
     this.expanded = !this.expanded;
+  }
+
+  pullMessage(){
+    let message = {
+      "returnImmediately" : false,
+      "maxMessages": 10
+    };
+    this.httpClient
+      .fetch("subscriptions/acme-rideshare-ride-accepted-subscription:pull",{
+        method: 'post',
+        body: json(message)
+      })
+      .then(response => {
+        response.json().then(data => {
+          if(data.receivedMessages){
+            this.acknowledge(data.receivedMessages[0].ackId);
+            //Do Something cool
+            
+          }else{
+            console.log("Pulling Again")
+            this.pullMessage()
+          }
+        })
+      })
+      
+  }
+
+  acknowledge(ackId){
+    console.log("acknowledged ID: "+ ackId)
+    let message = {
+      "ackIds": [ackId]
+    }
+    this.httpClient
+      .fetch("subscriptions/acme-rideshare-ride-accepted-subscription:acknowledge",{
+        method: 'post',
+        body: json(message)
+      })
   }
 }
 
