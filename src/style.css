@@ -5,15 +5,30 @@ body {
     overflow: hidden;
 }
 
+header {
+  font-family: 'Work Sans', sans-serif;
+  background-color: #FFB72E;
+  position: relative;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 3%;
+}
+
+header p {
+  text-transform: uppercase;
+  font-weight: lighter;
+  border: 1px solid black;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
 h1 {
-    font-family: 'Work Sans', sans-serif;
-    background-color: #FFB72E;
     text-align: center;
     font-size: 3em;
     font-weight: 800;
-    padding: 25px 0;
-    position: relative;
-    top: 0;
+    padding: 25px 0; 
     letter-spacing: 3px;
 }
 
@@ -36,8 +51,8 @@ button:hover {
 }
 
 iframe {
-    height: 110vh;
-    width: 120%;
+    height: 120vh;
+    width: 100%;
 }
 
 #map {
@@ -51,7 +66,7 @@ iframe {
     height: 110vh;
     width: 100%;
     position: absolute;
-    z-index: 9999;
+    z-index: -9999;
     animation-delay: 3.5s;
     animation-duration: 0.5s;
 }
@@ -69,6 +84,10 @@ iframe {
 svg {
     width: 25px;
     margin-right: 5px;
+}
+
+.page-content {
+    animation-delay: 3.5s;
 }
 
 /*****
