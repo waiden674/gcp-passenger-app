@@ -15,7 +15,7 @@ export class App {
         .withDefaults({
           credentials:'same-origin',
           headers: {
-            'Authorization': 'Bearer ya29.Iq8BvQcvu4ymbxRaiyS_gxlFB23jgHS3al-2-hss1Ayijv7w3LltvVYE8mqd9Z2qY-tPkh1P3vdOGSAYpcxKCwuBatCjZr3pIHZfno5pVJ-rzYghACZwpkjM1Hl0hnCOR2ZhltBak33pM0vo9pIPNrw1M2mllEFrthPHuuMFWMM8we9qus00cZiIesufqi24O6BfYhaRj8jq3zpOh-G6y7BT4BOTVzhcjL6f0Y1HKzSJcA',
+            'Authorization': 'Bearer ya29.Iq8BvQf-zcFf0tm-zJgavtQWPfzhP48BECopxe_ijavqrUFM6tJ6fkriA0YV8d7Yd6keqjIsrMJ1mHNqTlihN0QjG31wDV0KB07i-pnjKO3z7I_TlhwZPFUJFCCKfdPyvwGxrxn-me_0MH8njdve-WxllUgQBNpYt0y9hr9Iy5J97L-_KzxaUFVDMHs2RJnfPMz8YECdBq1Yt3xUegi9MG7-LyfZWfVpyjr2obx4mcA_8Q',
             'Accept' : 'application/json',
             'X-Requested-With' : 'Fetch'
           }
@@ -44,9 +44,11 @@ export class App {
             "attributes": {
               "key": "iana.org/language_tag",
               "value": "en",
-              "Type": "Request"
+              "passengerName":"Jack",
+              "requestType":"ride request",
+              "msg":"I need a rideshare."
             },
-            "data": btoa("Request"),
+            "data": "ewoJInBhc3Nlbmdlck5hbWUiOiJKYWNrIiwKCSJyZXF1ZXN0VHlwZSI6InJpZGUgcmVxdWVzdCIsCgkibXNnIjoiSSBuZWVkIGEgcmlkZXNoYXJlLiIKfQ==",
           }
         ]
       };
