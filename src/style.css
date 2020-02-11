@@ -51,8 +51,8 @@ button:hover {
 }
 
 iframe {
-    height: 110vh;
-    width: 120%;
+    height: 120vh;
+    width: 100%;
 }
 
 #map {
