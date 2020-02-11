@@ -5,6 +5,7 @@ import { inject } from "aurelia-framework";
 export class App {
   
   constructor(httpClient) {
+    this.buttonToggled = false;
     this.btnStr = 'Request REBU Driver';
     this.todos = [];
     this.todoDescription = '';
@@ -15,7 +16,7 @@ export class App {
         .withDefaults({
           credentials:'same-origin',
           headers: {
-            'Authorization': 'Bearer ya29.Iq8BvQf-zcFf0tm-zJgavtQWPfzhP48BECopxe_ijavqrUFM6tJ6fkriA0YV8d7Yd6keqjIsrMJ1mHNqTlihN0QjG31wDV0KB07i-pnjKO3z7I_TlhwZPFUJFCCKfdPyvwGxrxn-me_0MH8njdve-WxllUgQBNpYt0y9hr9Iy5J97L-_KzxaUFVDMHs2RJnfPMz8YECdBq1Yt3xUegi9MG7-LyfZWfVpyjr2obx4mcA_8Q',
+            'Authorization': 'Bearer ya29.Iq8BvQfdhEYQ9Kg6MJgTIiaxNqD6o6RPBFfYXh8XASaYRSaprStfAhjoPtavvAPsAs-GZ1zwfw3C39tafvl1EZGLUFalnVfJT4Dc5bitOtWQyW4AZVeScc9_o5ZT2nxS4-lSvhfWerGN3JshBfxVzgSKfLS34WPlHnLNO7SO_dsFgJPhUzvAmabngIJnymQslp4rjzPv1e-ioVYIsvfMew3XkqM8Wked1-byeC7JKuEpyA',
             'Accept' : 'application/json',
             'X-Requested-With' : 'Fetch'
           }
@@ -31,6 +32,20 @@ export class App {
           }
         });
     });
+  }
+
+  clickBtn(){
+    if(!this.buttonToggled){
+      this.buttonToggled = true;
+      this.publishMessage()
+    }else{
+      this.buttonToggled = false;
+      document.getElementById("message").style.visibility = "hidden";
+      document.getElementById("button-icon").style.display = "inline";
+      this.btnStr = "Request REBU Driver";
+      document.getElementById("button").style.backgroundColor = "#FFB72E";
+      this.pullMessage();
+    }
   }
 
   activate() {
@@ -87,7 +102,10 @@ export class App {
           if(data.receivedMessages){
             this.acknowledge(data.receivedMessages[0].ackId);
             //Do Something cool
-            
+            document.getElementById("message").style.visibility = "visible";
+            document.getElementById("button-icon").style.display = "none";
+            this.btnStr = "Cancel";
+            document.getElementById("button").style.backgroundColor = "#d52b2b";
           }else{
             console.log("Pulling Again")
             this.pullMessage()

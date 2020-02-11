@@ -87,7 +87,7 @@ svg {
 }
 
 .page-content {
-    /* animation-delay: 3.5s; */
+    animation-delay: 3.5s;
 }
 
 .profile {
@@ -216,5 +216,5 @@ PRELOADER
     font-size: 1.75em;
     width: 350px;
     text-align: center;
-    display: none;
+    visibility: hidden;
   }
