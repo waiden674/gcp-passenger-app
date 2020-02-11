@@ -15,7 +15,7 @@ export class App {
         .withDefaults({
           credentials:'same-origin',
           headers: {
-            'Authorization': 'Bearer ya29.Iq8BvQcNoMHuKCFqDjsNmc5FiJu_bSUyK6YXFfkTu_TBnsIX0Xcd_E5jaAhEu-W7C7VGJiVq8HXU-bwqCKPBnWFPusWZ24o1tiM_57dZkdUEE8dH5rU7XqwbC8k6EUcFkk1pZpBqzg3NZ6lg5SqM5i2I3y5ttn7croY_Ce-fza1WapJuBN1Q9Bzfecx_BYAm6GQ71CzUkLXy6396SPWHXY0UpWoP4a4X47foZ8853Kbqdw',
+            'Authorization': 'Bearer ya29.Iq8BvQcvu4ymbxRaiyS_gxlFB23jgHS3al-2-hss1Ayijv7w3LltvVYE8mqd9Z2qY-tPkh1P3vdOGSAYpcxKCwuBatCjZr3pIHZfno5pVJ-rzYghACZwpkjM1Hl0hnCOR2ZhltBak33pM0vo9pIPNrw1M2mllEFrthPHuuMFWMM8we9qus00cZiIesufqi24O6BfYhaRj8jq3zpOh-G6y7BT4BOTVzhcjL6f0Y1HKzSJcA',
             'Accept' : 'application/json',
             'X-Requested-With' : 'Fetch'
           }
@@ -43,15 +43,16 @@ export class App {
           {
             "attributes": {
               "key": "iana.org/language_tag",
-              "value": "en"
+              "value": "en",
+              "Type": "Request"
             },
-            "data": btoa("Hello, I want a ride pls")
+            "data": btoa("Request"),
           }
         ]
       };
 
       this.httpClient
-        .fetch("Rebu-test-topic:publish",{
+        .fetch("acme-rideshare-ride-requested-topic:publish",{
           method: 'post',
           body: json(message)
           })
